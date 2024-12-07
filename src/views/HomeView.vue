@@ -132,12 +132,150 @@
         </div>
       </v-col>
       <v-col cols="12" class="imgHover">
-        <v-row class="fill-height" align="center" justify="center">
+        <v-row class="fill-height" justify="center" align="center">
           <template v-for="(item, i) in items" :key="i">
+            <v-col cols="12" md="4">
+              <v-hover v-slot="{ isHovering, props }">
+                <v-card
+                  :elevation="isHovering ? 12 : 2"
+                  :class="{ 'on-hover': isHovering }"
+                  v-bind="props"
+                >
+                  <v-img :src="item.img" height="225px" cover></v-img>
+                </v-card>
+              </v-hover>
+            </v-col>
           </template>
         </v-row>
       </v-col>
+      <v-col cols="12" sm="12">
+        <div class="d-flex justify-center m-6">
+          <v-btn color="#fbdf7e" class="mt-4">Load More</v-btn>
+        </div>
+      </v-col>
+      <v-col cols="12" id="page">
+        <div class="pre">
+          <v-row>
+            <v-col cols="12" sm="4" class="d-flex justify-center">
+              <v-card class="mw-auto" max-width="344" height="">
+                <v-img src="i10.jpg" height="200px" cover></v-img>
+                <v-card-title>We provide you the best</v-card-title>
+                <v-card-subtitle>By AAE IdeaPro | 10 sep 2024</v-card-subtitle>
+                <v-card-text>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+                  rem saepe sapiente deleniti, odio non laborum fuga.
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="12" sm="4" class="d-flex justify-center">
+              <v-card class="mw-auto" max-width="344" height="">
+                <v-img src="i11.jpg" height="200px" cover></v-img>
+                <v-card-title>We provide you the best</v-card-title>
+                <v-card-subtitle>By AAE IdeaPro | 10 sep 2024</v-card-subtitle>
+                <v-card-text>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+                  rem saepe sapiente deleniti, odio non laborum fuga.
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="12" sm="4" class="d-flex justify-center">
+              <v-card class="mw-auto" max-width="344" height="">
+                <v-img src="i12.jpg" height="200px" cover></v-img>
+                <v-card-title>We provide you the best</v-card-title>
+                <v-card-subtitle>By AAE IdeaPro | 10 sep 2024</v-card-subtitle>
+                <v-card-text>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+                  rem saepe sapiente deleniti, odio non laborum fuga.
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+        </div>
+      </v-col>
+      <v-col cols="12" id="blog">
+        <div class="hire">
+          <v-row>
+            <v-col cols="12" sm="8">
+              <h1 class="mt-9">Hire me for your awesome project</h1>
+              <p class="text-grey">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
+                itaque, eaque molestiae deleniti, earum voluptate eos id dicta
+                at, blanditiis
+              </p>
+            </v-col>
+            <v-col cols="12" sm="4">
+              <v-btn color="#fbdf7e" class="mt-15">Hire Me</v-btn>
+            </v-col>
+          </v-row>
+        </div>
+      </v-col>
+      <v-col cols="12" sm="12" class="px-16" id="contact">
+        <v-row>
+          <v-col cols="12" sm="4">
+            <div class="child">
+              <h1>Contact info.</h1>
+              <v-btn
+                icon="fas fa-map-marker-alt"
+                variant="outlined"
+                class="mt-10"
+              ></v-btn>
+              <br />
+              <span class="text-caption">Your Street SYO, Your Area Dream</span>
+              <br />
+              <v-btn
+                icon="fas fa-phone-alt"
+                variant="outlined"
+                class="mt-10"
+              ></v-btn>
+              <br />
+              <span class="text-caption">00235 -6547</span><br />
+              <span class="text-caption">00235 -6547</span><br />
+              <v-btn
+                icon="fas fa-envelope"
+                variant="outlined"
+                class="mt-10"
+              ></v-btn>
+              <br />
+              <span class="text-caption">lhduyen98@gmail.com</span><br />
+              <span class="text-caption">lhduyen98@gmail.com</span><br />
+            </div>
+          </v-col>
+          <v-col cols="12" sm="8">
+            <h1 class="mt-8">Send your message</h1>
+            <v-divider></v-divider>
+            <span class="text-caption"
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+              fugiat officia, odio eaque exercitationem libero nesciunt placeat,
+              repellat obcaecati sed tenetur! Est labore aliquam amet
+              consequatur necessitatibus fugit obcaecati facilis!
+            </span>
+            <v-row class="mt-10">
+              <v-col cols="12" sm="6">
+                <v-text-field
+                  label="Name"
+                  persistent-hint
+                  variant="outlined"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-text-field
+                  label="Phone No"
+                  persistent-hint
+                  variant="outlined"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-textarea
+              label="Message"
+              persistent-hint=""
+              variant="outlined"
+            ></v-textarea>
+            <v-btn color="#fbdf7e" class="mt-2">Submit Now</v-btn>
+          </v-col>
+        </v-row>
+      </v-col>
     </v-container>
+    <FooterView />
   </v-app>
 </template>
 
@@ -145,6 +283,7 @@
 // Components
 import { ref } from "vue";
 import NavBar from "@/components/NavBar.vue";
+import FooterView from "@/components/FooterView.vue";
 
 const slider2 = ref(50);
 
@@ -156,7 +295,7 @@ const items = ref([
     img: "i4.jpg",
   },
   {
-    img: "i6.jpg",
+    img: "i6.jpeg",
   },
   {
     img: "i9.jpg",
